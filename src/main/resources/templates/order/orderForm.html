@@ -12,6 +12,20 @@
         <input type="text" id="member" name="member" th:value="${member.name}" readonly></input>
         <input type="text" id="id" name="id" th:value="${member.id}" readonly></input>
     </div>
+    <div>
+        <label for="member">상품명</label>
+        <select id="item" name="itemId">
+            <option value="">상품선택</option>
+            <option th:each="item : ${items}"
+                    th:value="${item.id}"
+                    th:text="${item.itemName}"/>
+        </select>
+    </div>
+    <div>
+        <label for="count"> 주문수량 </label>
+        <input id="count" name="count" placeholder="수량을 입력해주세요">
+    </div>
+    <select> </select>
 <!--    <div>-->
 <!--        <label for="price">금액</label>-->
 <!--        <input type="text" id="price" name="price" placeholder="상품의 판매금액을 입력해주세요"></input>-->

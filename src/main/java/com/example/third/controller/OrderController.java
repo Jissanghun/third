@@ -2,7 +2,9 @@ package com.example.third.controller;
 
 import com.example.third.controller.session.MemberSession;
 import com.example.third.controller.session.SessionConst;
+import com.example.third.domain.Item;
 import com.example.third.domain.Order;
+import com.example.third.service.ItemService;
 import com.example.third.service.MemberService;
 import com.example.third.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -26,18 +28,25 @@ public class OrderController {
     private final OrderService orderService;
     private final MemberService memberService;
 
+    private final ItemService itemService;
+
+
     @GetMapping("/add")
     public String order(HttpServletRequest request, Model model){
         HttpSession session = request.getSession(false);
         MemberSession memberSession = (MemberSession)session.getAttribute(SessionConst.NAME);
+        List<Item> items = itemService.allItems();
+        model.addAttribute("items", items);
         model.addAttribute("member", memberSession);
         return "order/orderForm";
     }
 
     @PostMapping("/add")
-    public String order(@RequestParam Long id){
+    public String order(@RequestParam Long id,
+                        @RequestParam Long itemId,
+                        @RequestParam int count){
         System.out.println("id :" +id);
-        orderService.order(id);
+        orderService.order(id, itemId, count);
         return "redirect:/order/orders";
     }
 

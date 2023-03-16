@@ -22,6 +22,8 @@ public class SpringConfig {
 //        //this.dataSource = dataSource;
 //        this.em = em;
 //    }
+
+
     @Bean
     public ItemService itemService(){
         return new ItemService(itemRepository());
@@ -41,9 +43,11 @@ public class SpringConfig {
     }
 
 
+
+
     @Bean
     public OrderService orderService(){
-        return new OrderService(orderRepository(),memberRepository());
+        return new OrderService(orderRepository(),memberRepository(), itemRepository());
 
     }
 
