@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>상품 상세</h1>
+</div>
+<div>
+    <label for="id">상품 ID</label>
+    <input type="text" id="id" name="id" th:value="${item.id}" readonly></input>
+</div>
+<div>
+    <label for="itemName">상품명</label>
+    <input type="text" id="itemName" name="itemName" th:value="${item.itemName}" readonly></input>
+</div>
+<div>
+    <label for="price">금액</label>
+    <input type="text" id="price" name="price" th:value="${item.price}" readonly></input>
+</div>
+<div>
+    <label for="quantity">수량</label>
+    <input type="text" id="quantity" name="quantity" th:value="${item.quantity}" readonly></input>
+</div>
+<div>
+    <button type="button" th:onclick="|location.href='@{/basic/edit/{id}(id=${item.id})}'|" >상품 수정</button>
+    <button type="button" th:onclick="|location.href='@{/basic/items}'|">목록으로</button>
+</div>
+
+<div>
+    <h3 th:if="${param.status}" th:text="|저장 완료|"></h3>
+</div>
+</body>
+</html>
