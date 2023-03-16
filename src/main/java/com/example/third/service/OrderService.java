@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class OrderService {
@@ -40,3 +40,5 @@ public class OrderService {
         return orderRepository.findAll(username);
     }
 }
+
+

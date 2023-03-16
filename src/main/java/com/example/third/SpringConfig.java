@@ -41,15 +41,15 @@ public class SpringConfig {
     }
 
 
-//    @Bean
-//    public OrderService orderService(){
-//        return new OrderService(orderRepository(),memberRepository());
-//
-//    }
-//
-//    @Bean
-//    public OrderRepository orderRepository(){
-//        return new OrderRepository(em);
-//    }
+    @Bean
+    public OrderService orderService(){
+        return new OrderService(orderRepository(),memberRepository());
+
+    }
+
+    @Bean
+    public OrderRepository orderRepository(){
+        return new OrderRepository(em);
+    }
 
 }

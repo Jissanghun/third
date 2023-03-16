@@ -10,15 +10,16 @@
     <div>
         <label for="member">주문회원</label>
         <input type="text" id="member" name="member" th:value="${member.name}" readonly></input>
+        <input type="text" id="id" name="id" th:value="${member.id}" readonly></input>
     </div>
-    <div>
-        <label for="price">금액</label>
-        <input type="text" id="price" name="price" placeholder="상품의 판매금액을 입력해주세요"></input>
-    </div>
-    <div>
-        <label for="quantity">수량</label>
-        <input type="text" id="quantity" name="quantity" placeholder="상품의 수량을 입력해주세요"></input>
-    </div>
+<!--    <div>-->
+<!--        <label for="price">금액</label>-->
+<!--        <input type="text" id="price" name="price" placeholder="상품의 판매금액을 입력해주세요"></input>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label for="quantity">수량</label>-->
+<!--        <input type="text" id="quantity" name="quantity" placeholder="상품의 수량을 입력해주세요"></input>-->
+<!--    </div>-->
     <div>
         <button type="submit">등록</button> <button type="button">취소</button>
     </div>
