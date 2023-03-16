@@ -1,5 +1,6 @@
 package com.example.third.domain;
 
+import com.example.third.controller.exception.NotEnoughStockException;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,5 +24,12 @@ public class Item{
         this.itemName = itemName;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    public void removeStock(int orderQuantity){
+        if(this.quantity - orderQuantity < 0) {
+            throw new NotEnoughStockException("재고 수량이 부족합니다.");
+        }
+        this.quantity -= orderQuantity;
     }
 }

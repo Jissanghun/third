@@ -21,6 +21,17 @@ public class OrderItem {
     @ManyToOne
     @JoinColumn(name="order_id")
     private Order order;
-    private int orderPrice;
-    private int orderQuantity;
+    private int orderPrice; // 판매가
+    private int orderQuantity; // 재고 수량
+
+    private static OrderItem createOrderItem(Item item, int orderPrice, int orderQuantity) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(orderPrice);
+        orderItem.setOrderQuantity(orderQuantity);
+
+        //item.removeStock(orderQuantity);
+
+        return orderItem;
+    }
 }
